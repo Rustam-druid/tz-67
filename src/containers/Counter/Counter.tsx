@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { del, emty, increaseArrNumber } from './counterSlice.ts';
-import { RootState } from '../../app/store.ts';
+import { AppDispatch, RootState } from '../../app/store.ts';
 import { useState } from 'react';
 
 const Counter = () => {
   const counterValue = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const arrButton = [1, 2, 3, 4, 5, 6, 7, 8, 9, '<', 0, 'E'];
   const arr = [1, 1, 1, 1];
