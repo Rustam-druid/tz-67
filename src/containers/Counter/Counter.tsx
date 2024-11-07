@@ -23,6 +23,18 @@ const Counter = () => {
     }
   };
 
+  const handleClick = (btn: number | string) => {
+  if (btn === '<') {
+      dispatch(del());
+    } else if (btn === 'E') {
+      handleEButtonClick();
+    } else {
+      if (counterValue.length < 4){
+        dispatch(increaseArrNumber(btn));
+      }
+    }
+  };
+
   return (
     <div className="container mt-5">
       <div className="row justify-content-center align-items-center">
@@ -47,20 +59,9 @@ const Counter = () => {
               <button
                 className="col-3 border border-2 p-2"
                 key={btn}
-                onClick={() => {
-                  if (btn === '<') {
-                    dispatch(del());
-                  } else if (btn === 'E') {
-                    handleEButtonClick();
-                  } else {
-                    if (counterValue.length < 4) {
-                      dispatch(increaseArrNumber(btn));
-                    }
-                  }
-                }}
+                onClick={() => handleClick(btn)}
               >
-                {btn}
-              </button>
+                {btn}</button>
             ))}
           </div>
         </div>
